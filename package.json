@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "name": "9.rest-api-(crud--task-app)practice-sa-8",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": " node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
