@@ -62,4 +62,19 @@ router.patch("/task/:id", async (req, res) => {
   }
 });
 
+// deleting taskData
+
+router.delete("/task/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletingData = await Task.findByIdAndDelete(id);
+    if (!deletingData) {
+      return res.status(404).send("no match found to delete");
+    }
+    res.status(200).send("data deleted successfully " + deletingData);
+  } catch (error) {
+    res.status(404).send("something went wrong" + error.message);
+  }
+});
+
 export default router;
