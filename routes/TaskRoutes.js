@@ -15,4 +15,19 @@ router.post("/task", async (req, res) => {
   }
 });
 
+// reading tasks data
+
+router.get("/task", async (req, res) => {
+  try {
+    const taskData = await Task.find({});
+
+    if (!taskData) {
+      return res.status(404).send("internal server error");
+    }
+    return res.status(200).send(taskData);
+  } catch (error) {
+    return res.status(400).send("something went wrong" + error.message);
+  }
+});
+
 export default router;
