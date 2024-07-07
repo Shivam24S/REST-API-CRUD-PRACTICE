@@ -1,22 +1,18 @@
-// import mongoose from "mongoose";
-
-// mongoose.connect("mongodb://localhost:127.0.0.17/CRUD-Task-Api");
-
 import mongoose from "mongoose";
 
-// Connection URL and options
-const url = "mongodb://127.0.0.1:27017/CRUD-Task-Api";
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
+async function connectingDb() {
+  try {
+    const dbConnect = await mongoose.connect(
+      "mongodb://127.0.0.1:27017/CRUD-Task-Api"
+    );
+    if (!dbConnect) {
+      return console.log("failed to connect DB");
+    }
 
-// Connect to MongoDB
-mongoose
-  .connect(url, options)
-  .then(() => {
-    console.log("Connected to MongoDB successfully.");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error.message);
-  });
+    console.log("DB connected successfully");
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+connectingDb();
